@@ -1,14 +1,127 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صحتك بالدنيا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <h1>أهلاً بك في تطبيق صحتك بالدنيا</h1>
+    <header id="main-header" class="main-header hidden">
+        <div class="container header-container">
+            <div class="header-side">
+                <button id="menu-button" class="menu-button"><i class="fas fa-bars"></i></button>
+            </div>
+            <div class="header-center">
+                <a href="#" class="logo" data-translate="appName"></a>
+            </div>
+            <div class="header-side"></div>
+        </div>
+    </header>
 
+    <main id="main-content">
+        
+        <section id="language-selection-screen" class="auth-screen active">
+            <div class="auth-container">
+                <h1 class="app-title" data-translate="appName"></h1>
+                <p class="screen-subtitle" data-translate="chooseLanguage"></p>
+                <div class="language-buttons">
+                    <button class="btn btn-primary btn-full" data-lang="ar">العربية</button>
+                    <button class="btn btn-primary btn-full" data-lang="en">English</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="auth-options-screen" class="auth-screen">
+             <div class="auth-container">
+                <h1 class="app-title" data-translate="appName"></h1>
+                <div class="action-buttons">
+                    <button class="btn btn-primary btn-full" data-translate="login" id="go-to-login-screen-btn"></button>
+                    <button class="btn btn-secondary btn-full" data-translate="register" id="go-to-register-screen-btn"></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="login-screen" class="auth-screen">
+            <div class="auth-container">
+                <h1 class="app-title" data-translate="login"></h1>
+                <form class="auth-form" id="login-form">
+                    <div class="form-group">
+                        <label for="login-email" data-translate="email"></label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" data-translate="password"></label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="login"></button>
+                    <p class="form-link-container">
+                        <span data-translate="dontHaveAccount"></span>
+                        <a href="#" class="form-link" id="back-to-register-from-login" data-translate="register"></a>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <section id="register-screen" class="auth-screen">
+            <div class="auth-container">
+                <h1 class="app-title" data-translate="register"></h1>
+                <form class="auth-form" id="register-form">
+                    <div class="form-group">
+                        <label for="register-name" data-translate="fullName"></label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" data-translate="email"></label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" data-translate="password"></label>
+                        <input type="password" id="register-password" minlength="6" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="register"></button>
+                    <p class="form-link-container">
+                        <span data-translate="alreadyHaveAccount"></span>
+                        <a href="#" class="form-link" id="back-to-login-from-register" data-translate="login"></a>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <section id="home-screen" class="profile-section">
+            <div class="profile-picture-container">
+                <img src="images/profile.png" alt="صورة كامل المنجليفي الشخصية" class="profile-picture">
+            </div>
+            <h2 class="username" data-translate="myFullName"></h2>
+            <p class="user-title" data-translate="myTitle"></p>
+            <div class="action-buttons">
+                <button class="btn btn-primary" data-translate="myStory"></button>
+                <button class="btn btn-primary" data-translate="myCertificates"></button>
+            </div>
+            <div class="consultation-button-container">
+                <button class="btn btn-secondary" data-translate="bookConsultation"></button>
+            </div>
+        </section>
+
+    </main>
+
+    <aside id="side-menu" class="side-menu">
+        <a href="#" data-translate="measurements"></a>
+        <a href="#" data-translate="medicalProfile"></a>
+        <a href="#" data-translate="myHealthStatus"></a>
+        <a href="#" data-translate="dietPrograms"></a>
+        <a href="#" data-translate="caloriesGuide"></a>
+        <a href="#" data-translate="healthyRecipes"></a>
+        <a href="#" data-translate="scientificEvidence"></a>
+    </aside>
+
+    <!-- استدعاء المكتبات -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
