@@ -1,0 +1,35 @@
+/* --- استيراد الخطوط من جوجل --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Montserrat:wght@400;700&display=swap' );
+
+/* --- المتغيرات اللونية --- */
+:root {
+    --primary-green: #2E8B57;
+    --secondary-blue: #4682B4;
+    --background-color: #F5F5F5;
+    --text-color: #333333;
+    --accent-gold: #FFD700;
+}
+
+/* --- التنسيقات العامة للجسم --- */
+body {
+    /* تحديد الخطوط */
+    font-family: 'Cairo', 'Montserrat', sans-serif;
+
+    /* تحديد لون الخلفية والنص */
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    /* إزالة الهوامش الافتراضية */
+    margin: 0;
+    padding: 0;
+
+    /* تحديد اتجاه الصفحة (احتياطي) */
+    direction: rtl;
+}
+
+/* --- تنسيق العنوان المؤقت --- */
+h1 {
+    text-align: center;
+    color: var(--primary-green);
+    padding-top: 50px;
+}
