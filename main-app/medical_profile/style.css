@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="medicalProfile">ملفي الطبي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- استخدام ملف CSS الرئيسي كأساس + ملف CSS الخاص بالملف الطبي -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="medical-header" class="main-header">
+        <div class="container header-container">
+            <div class="header-side">
+                <!-- زر العودة يوجه إلى التطبيق الرئيسي -->
+                <a href="../index.html" class="menu-button"><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <div class="header-center">
+                <h1 class="logo" data-translate="medicalProfile"></h1>
+            </div>
+            <div class="header-side">
+                <!-- يمكن وضع أيقونة هنا مستقبلاً -->
+            </div>
+        </div>
+    </header>
+    <main id="main-content">
+        <!-- القائمة الفرعية للملف الطبي -->
+        <section id="medical-sub-menu-screen" class="main-app-screen active">
+            <div class="container">
+                <h1 class="screen-title" data-translate="medicalProfile"></h1>
+                <p class="screen-subtitle" data-translate="medicalProfileSubtitle"></p>
+                <div class="action-buttons-stack">
+                    <button class="btn btn-primary btn-full" data-target="lab-results-screen" data-translate="myLabResults"></button>
+                    <button class="btn btn-primary btn-full" data-target="medical-tests-screen" data-translate="medicalTests"></button>
+                    <button class="btn btn-primary btn-full" data-target="personal-history-screen" data-translate="personalMedicalHistoryTitle"></button>
+                    <button class="btn btn-primary btn-full" data-target="family-history-screen" data-translate="familyMedicalHistoryTitle"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- شاشة التحاليل العامة -->
+        <section id="medical-tests-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="medicalTests"></h1>
+                <p class="screen-subtitle" data-translate="medicalTestsSubtitle"></p>
+                <div class="card">
+                    <button id="show-recommendations-btn" class="btn btn-secondary btn-full" data-translate="showMedicalRecommendations"></button>
+                    <div id="recommendations-content" class="recommendations-content">
+                        <h3 data-translate="recommendationsTitle"></h3>
+                        <p data-translate="recommendationsIntro"></p>
+                        <!-- ... محتوى التوصيات ... -->
+                        <a href="https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-disease/art-20049357" target="_blank" rel="noopener noreferrer" data-translate="readMoreLink"></a>
+                    </div>
+                </div>
+                <form id="medical-tests-form" class="card">
+                    <div class="form-group">
+                        <label for="test-name" data-translate="testName"></label>
+                        <input type="text" id="test-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-date" data-translate="testDate"></label>
+                        <input type="date" id="test-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-result" data-translate="testResult"></label>
+                        <input type="text" id="test-result" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-notes" data-translate="testNotes"></label>
+                        <textarea id="test-notes" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveTestResult"></button>
+                </form>
+                <div id="medical-tests-list" class="list-container"></div>
+            </div>
+        </section>
+
+        <!-- شاشة التاريخ الطبي الشخصي -->
+        <section id="personal-history-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="personalMedicalHistoryTitle"></h1>
+                <form id="personal-history-form">
+                    <!-- ... محتوى النموذج ... -->
+                </form>
+            </div>
+        </section>
+        
+        <!-- شاشة التاريخ الطبي للعائلة -->
+        <section id="family-history-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="familyMedicalHistoryTitle"></h1>
+                <form id="family-history-form">
+                    <!-- ... محتوى النموذج ... -->
+                </form>
+            </div>
+        </section>
+
+        <!-- شاشة "تحاليلي" المفصلة -->
+        <section id="lab-results-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="myLabResults"></h1>
+                <form id="lab-results-form">
+                    <!-- ... محتوى النموذج ... -->
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../js/firebase-init.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

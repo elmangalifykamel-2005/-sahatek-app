@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="medicalProfile">ملفي الطبي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="medical-header" class="main-header">
+        <div class="container header-container">
+            <div class="header-side">
+                <!-- === الإصلاح: تمت إزالة onclick وإضافة id === -->
+                <button id="medical-back-button" class="menu-button"><i class="fas fa-arrow-left"></i></button>
+            </div>
+            <div class="header-center">
+                <h1 class="logo" data-translate="medicalProfile"></h1>
+            </div>
+            <div class="header-side"></div>
+        </div>
+    </header>
+    <main id="main-content">
+        <!-- ... باقي محتوى الملف بدون تغيير ... -->
+        <section id="medical-sub-menu-screen" class="main-app-screen active">
+            <div class="container">
+                <h1 class="screen-title" data-translate="medicalProfile"></h1>
+                <p class="screen-subtitle" data-translate="medicalProfileSubtitle"></p>
+                <div class="action-buttons-stack">
+                    <button class="btn btn-primary btn-full" data-target="lab-results-screen" data-translate="myLabResults"></button>
+                    <button class="btn btn-primary btn-full" data-target="lab-results-history-screen" data-translate="viewLabHistory"></button>
+                    <button class="btn btn-primary btn-full" data-target="medical-tests-screen" data-translate="medicalTests"></button>
+                    <button class="btn btn-primary btn-full" data-target="personal-history-screen" data-translate="personalMedicalHistoryTitle"></button>
+                    <button class="btn btn-primary btn-full" data-target="family-history-screen" data-translate="familyMedicalHistoryTitle"></button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="lab-results-history-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="viewLabHistory"></h1>
+                <div id="lab-results-history-list" class="list-container">
+                    <!-- Historial de resultados de laboratorio se poblará aquí -->
+                </div>
+            </div>
+        </section>
+
+        <section id="medical-tests-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="medicalTests"></h1>
+                <p class="screen-subtitle" data-translate="medicalTestsSubtitle"></p>
+                <div class="card">
+                    <button id="show-recommendations-btn" class="btn btn-secondary btn-full" data-translate="showMedicalRecommendations"></button>
+                    <div id="recommendations-content" class="recommendations-content">
+                        <h4 data-translate="recommendationsTitle">التحاليل الأساسية حسب الحالة الصحية والعمر</h4>
+                        <p data-translate="recommendationsIntro">بناءً على الإرشادات الطبية المعتمدة، إليك التحاليل الأساسية التي يجب إجراؤها بشكل دوري:</p>
+                        <h5>التحاليل الأساسية للبالغين الأصحاء (سنوياً)</h5>
+                        <ul>
+                            <li><b>صورة الدم الكاملة (CBC):</b> لفحص خلايا الدم.</li>
+                            <li><b>اللوحة الأيضية الأساسية:</b> وظائف الكلى، سكر الدم، الكالسيوم.</li>
+                            <li><b>فحص الدهون الكامل (Lipid Panel):</b> الكوليسترول وثلاثي الجليسريد.</li>
+                            <li><b>وظائف الكبد (LFTs)</b></li>
+                        </ul>
+                        <h5>التحاليل حسب الحالات المرضية</h5>
+                        <ul>
+                            <li><b>مرضى السكري:</b> السكر التراكمي (HbA1c) كل 3-6 أشهر.</li>
+                            <li><b>أمراض الغدة الدرقية:</b> فحص TSH سنوياً للحالات المستقرة.</li>
+                        </ul>
+                        <h5>فحوصات هامة للمرأة</h5>
+                        <ul>
+                            <li><b>مسحة عنق الرحم:</b> كل 3-5 سنوات (25-65 سنة).</li>
+                            <li><b>الماموجرام:</b> سنوياً فوق 40-50 سنة.</li>
+                        </ul>
+                        <h5>فحوصات هامة للرجل</h5>
+                        <ul>
+                            <li><b>مستضد البروستات (PSA):</b> فوق 50 سنة حسب الحاجة.</li>
+                        </ul>
+                        <hr>
+                        <p><b>نصيحة هامة:</b> الاكتشاف المبكر يزيد من فرص العلاج الناجح. لا تؤجل فحوصاتك الدورية.</p>
+                        <a href="https://www.mayoclinic.org/diseases-conditions/heart-disease/in-depth/heart-disease/art-20049357" target="_blank" rel="noopener noreferrer" data-translate="readMoreLink"></a>
+                    </div>
+                </div>
+                <form id="medical-tests-form" class="card">
+                    <div class="form-group">
+                        <label for="test-name" data-translate="testName"></label>
+                        <input type="text" id="test-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-date" data-translate="testDate"></label>
+                        <input type="date" id="test-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-result" data-translate="testResult"></label>
+                        <input type="text" id="test-result" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="test-notes" data-translate="testNotes"></label>
+                        <textarea id="test-notes" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveTestResult"></button>
+                </form>
+                <div id="medical-tests-list" class="list-container"></div>
+            </div>
+        </section>
+        <section id="personal-history-screen" class="main-app-screen">
+             <div class="container">
+                <h1 class="screen-title" data-translate="personalMedicalHistoryTitle"></h1>
+                <form id="personal-history-form">
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="personalConditions"></h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="personalCondition" value="diabetes"><span data-translate="conditionDiabetes"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="personalCondition" value="hypertension"><span data-translate="conditionHypertension"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="personalCondition" value="fatty_liver"><span data-translate="conditionFattyLiver"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="personalCondition" value="pcos"><span data-translate="conditionPcos"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="personalCondition" value="none"><span data-translate="conditionNone"></span></label>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="allergiesTitle"></h3>
+                        <div class="form-group">
+                            <textarea id="allergies" rows="4" data-translate-placeholder="allergiesPlaceholder"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="surgeriesTitle"></h3>
+                        <div class="form-group">
+                            <textarea id="surgeries" rows="4" data-translate-placeholder="surgeriesPlaceholder"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="lifestyleTitle"></h3>
+                        <div class="form-group">
+                            <label for="sleep-hours" data-translate="sleepHours"></label>
+                            <select id="sleep-hours">
+                                <option value="" data-translate="selectOption"></option>
+                                <option value="less_5" data-translate="sleepLess5"></option>
+                                <option value="5_7" data-translate="sleep5_7"></option>
+                                <option value="7_9" data-translate="sleep7_9"></option>
+                                <option value="more_9" data-translate="sleepMore9"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-translate="smokingStatus"></label>
+                            <div class="radio-group-horizontal">
+                                <label class="radio-label"><input type="radio" name="smoking" value="no" checked><span data-translate="smokingNo"></span></label>
+                                <label class="radio-label"><input type="radio" name="smoking" value="yes"><span data-translate="smokingYes"></span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="physical-activity" data-translate="physicalActivity"></label>
+                            <select id="physical-activity">
+                                <option value="" data-translate="selectOption"></option>
+                                <option value="low" data-translate="activityLow"></option>
+                                <option value="moderate" data-translate="activityModerate"></option>
+                                <option value="high" data-translate="activityHigh"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="work-nature" data-translate="workNature"></label>
+                            <select id="work-nature">
+                                <option value="" data-translate="selectOption"></option>
+                                <option value="sedentary" data-translate="workSedentary"></option>
+                                <option value="active" data-translate="workActive"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveProfile"></button>
+                </form>
+            </div>
+        </section>
+        <section id="family-history-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="familyMedicalHistoryTitle"></h1>
+                <form id="family-history-form">
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="familyConditions"></h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="familyCondition" value="diabetes"><span data-translate="familyDiabetes"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="familyCondition" value="heart_disease"><span data-translate="familyHeartDisease"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="familyCondition" value="cancer"><span data-translate="familyCancer"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="familyCondition" value="none"><span data-translate="conditionNone"></span></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveProfile"></button>
+                </form>
+            </div>
+        </section>
+        <section id="lab-results-screen" class="main-app-screen">
+             <div class="container">
+                <h1 class="screen-title" data-translate="myLabsTitle"></h1>
+                <p class="screen-subtitle" data-translate="myLabsSubtitle"></p>
+                <form id="lab-results-form" class="card">
+                    <div class="form-group">
+                        <label for="lab-date" data-translate="labDate"></label>
+                        <input type="date" id="lab-date" required>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="labGroupSugar"></h3>
+                        <div class="form-group">
+                            <label for="lab-glucose" data-translate="labGlucose"></label>
+                            <input type="number" step="any" id="lab-glucose" placeholder="mg/dL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-hba1c" data-translate="labHba1c"></label>
+                            <input type="number" step="any" id="lab-hba1c" placeholder="%">
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="labGroupLipids"></h3>
+                        <div class="form-group">
+                            <label for="lab-cholesterol" data-translate="labCholesterol"></label>
+                            <input type="number" step="any" id="lab-cholesterol" placeholder="mg/dL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-hdl" data-translate="labHdl"></label>
+                            <input type="number" step="any" id="lab-hdl" placeholder="mg/dL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-ldl" data-translate="labLdl"></label>
+                            <input type="number" step="any" id="lab-ldl" placeholder="mg/dL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-triglycerides" data-translate="labTriglycerides"></label>
+                            <input type="number" step="any" id="lab-triglycerides" placeholder="mg/dL">
+                        </div>
+                    </div>
+                     <div class="form-step">
+                        <h3 class="step-title" data-translate="labGroupLiver"></h3>
+                        <div class="form-group">
+                            <label for="lab-ast" data-translate="labAst"></label>
+                            <input type="number" step="any" id="lab-ast" placeholder="U/L">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-alt" data-translate="labAlt"></label>
+                            <input type="number" step="any" id="lab-alt" placeholder="U/L">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-alp" data-translate="labAlp"></label>
+                            <input type="number" step="any" id="lab-alp" placeholder="U/L">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-bilirubin" data-translate="labBilirubin"></label>
+                            <input type="number" step="any" id="lab-bilirubin" placeholder="mg/dL">
+                        </div>
+                    </div>
+                     <div class="form-step">
+                        <h3 class="step-title" data-translate="labGroupKidney"></h3>
+                        <div class="form-group">
+                            <label for="lab-bun" data-translate="labBun"></label>
+                            <input type="number" step="any" id="lab-bun" placeholder="mg/dL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-creatinine" data-translate="labCreatinine"></label>
+                            <input type="number" step="any" id="lab-creatinine" placeholder="mg/dL">
+                        </div>
+                    </div>
+                     <div class="form-step">
+                        <h3 class="step-title" data-translate="labGroupOther"></h3>
+                        <div class="form-group">
+                            <label for="lab-tsh" data-translate="labTsh"></label>
+                            <input type="number" step="any" id="lab-tsh" placeholder="µIU/mL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-vitd" data-translate="labVitd"></label>
+                            <input type="number" step="any" id="lab-vitd" placeholder="ng/mL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-crp" data-translate="labCrp"></label>
+                            <input type="number" step="any" id="lab-crp" placeholder="mg/L">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-psa" data-translate="labPsa"></label>
+                            <input type="number" step="any" id="lab-psa" placeholder="ng/mL">
+                        </div>
+                    </div>
+                     <div class="form-step">
+                        <h3 class="step-title" data-translate="labGroupCbc"></h3>
+                        <div class="form-group">
+                            <label for="lab-hemoglobin" data-translate="labHemoglobin"></label>
+                            <input type="number" step="any" id="lab-hemoglobin" placeholder="g/dL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-wbc" data-translate="labWbc"></label>
+                            <input type="number" step="any" id="lab-wbc" placeholder="10³/µL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-rbc" data-translate="labRbc"></label>
+                            <input type="number" step="any" id="lab-rbc" placeholder="10⁶/µL">
+                        </div>
+                        <div class="form-group">
+                            <label for="lab-platelets" data-translate="labPlatelets"></label>
+                            <input type="number" step="any" id="lab-platelets" placeholder="10³/µL">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveLabResults"></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../js/firebase-init.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="appName">صحتك بالدنيا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header" class="main-header hidden">
+        <div class="container header-container">
+            <div class="header-side">
+                <button id="back-button" class="menu-button hidden"><i class="fas fa-arrow-left"></i></button>
+                <button id="menu-button" class="menu-button"><i class="fas fa-bars"></i></button>
+            </div>
+            <div class="header-center">
+                <a href="#" class="logo" data-translate="appName"></a>
+            </div>
+            <div class="header-side">
+                <button id="profile-button" class="menu-button hidden"><i class="fas fa-user"></i></button>
+            </div>
+        </div>
+    </header>
+    <main id="main-content">
+        <section id="language-selection-screen" class="auth-screen active">
+            <div class="auth-container">
+                <h1 class="app-title" data-translate="appName"></h1>
+                <p class="screen-subtitle" data-translate="chooseLanguage"></p>
+                <div class="language-buttons">
+                    <button class="btn btn-primary btn-full" data-lang="ar">العربية</button>
+                    <button class="btn btn-primary btn-full" data-lang="en">English</button>
+                </div>
+            </div>
+        </section>
+        <section id="auth-options-screen" class="auth-screen">
+            <div class="auth-container">
+                <h1 class="app-title" data-translate="appName"></h1>
+                <div class="auth-buttons-stack">
+                    <button class="btn btn-google btn-full" id="google-signin-btn-1">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
+                        <span data-translate="loginWithGoogle"></span>
+                    </button>
+                    <div class="divider" data-translate="or"></div>
+                    <button class="btn btn-primary btn-full" data-translate="login" id="go-to-login-screen-btn"></button>
+                    <p class="form-link-container">
+                        <span data-translate="dontHaveAccount"></span>
+                        <a href="#" class="form-link" id="go-to-register-screen-btn" data-translate="register"></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="login-screen" class="auth-screen">
+            <div class="auth-container">
+                <button class="auth-back-button" data-target="auth-options-screen"><i class="fas fa-arrow-left"></i></button>
+                <h1 class="app-title" data-translate="login"></h1>
+                <div class="auth-buttons-stack">
+                    <button class="btn btn-google btn-full" id="google-signin-btn-2">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
+                        <span data-translate="loginWithGoogle"></span>
+                    </button>
+                    <div class="divider" data-translate="or"></div>
+                    <form class="auth-form" id="login-form">
+                        <div class="form-group">
+                            <label for="login-email" data-translate="email"></label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password" data-translate="password"></label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" data-translate="login"></button>
+                        <p class="form-link-container">
+                            <span data-translate="dontHaveAccount"></span>
+                            <a href="#" class="form-link" id="back-to-register-from-login" data-translate="register"></a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="register-screen" class="auth-screen">
+            <div class="auth-container">
+                <button class="auth-back-button" data-target="auth-options-screen"><i class="fas fa-arrow-left"></i></button>
+                <h1 class="app-title" data-translate="register"></h1>
+                <form class="auth-form" id="register-form">
+                    <div class="form-group">
+                        <label for="register-name" data-translate="fullName"></label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" data-translate="email"></label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" data-translate="password"></label>
+                        <input type="password" id="register-password" minlength="6" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="register"></button>
+                    <p class="form-link-container">
+                        <span data-translate="alreadyHaveAccount"></span>
+                        <a href="#" class="form-link" id="back-to-login-from-register" data-translate="login"></a>
+                    </p>
+                </form>
+            </div>
+        </section>
+        <section id="home-screen" class="profile-section">
+            <div class="container">
+                <div class="profile-picture-container">
+                    <img src="images/profile.png" alt="صورة كامل المنجليفي الشخصية" class="profile-picture">
+                </div>
+                <h2 class="username" data-translate="myFullName"></h2>
+                <p class="user-title" data-translate="myTitle"></p>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" data-translate="myStory" data-target="story-screen"></button>
+                    <button class="btn btn-primary" data-translate="myCertificates" data-target="certificates-screen"></button>
+                </div>
+                <div class="consultation-button-container">
+                    <button class="btn btn-secondary" data-translate="bookConsultation"></button>
+                </div>
+            </div>
+        </section>
+        <section id="profile-setup-screen" class="auth-screen">
+            <div class="auth-container">
+                <button class="auth-back-button" data-target="auth-options-screen"><i class="fas fa-arrow-left"></i></button>
+                <h1 class="app-title" data-translate="setupProfileTitle"></h1>
+                <p class="screen-subtitle" data-translate="setupProfileSubtitle"></p>
+                <form class="auth-form" id="profile-setup-form">
+                    <div class="form-group">
+                        <label for="setup-name" data-translate="fullName"></label>
+                        <input type="text" id="setup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="setup-gender" data-translate="gender"></label>
+                        <select id="setup-gender" required>
+                            <option value="" disabled selected data-translate="selectOption"></option>
+                            <option value="male" data-translate="male"></option>
+                            <option value="female" data-translate="female"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="setup-dob" data-translate="dob"></label>
+                        <input type="date" id="setup-dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="setup-height" data-translate="height"></label>
+                        <input type="number" id="setup-height" placeholder="cm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="setup-weight" data-translate="currentWeight"></label>
+                        <input type="number" id="setup-weight" placeholder="kg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="setup-waist" data-translate="waistCircumference"></label>
+                        <input type="number" id="setup-waist" placeholder="cm" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveAndContinue"></button>
+                </form>
+            </div>
+        </section>
+        <section id="health-status-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="myHealthStatus"></h1>
+                <div class="status-grid">
+                    <div class="status-card">
+                        <div class="card-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <div class="card-value" id="status-age">--</div>
+                        <div class="card-label" data-translate="age"></div>
+                    </div>
+                    <div class="status-card">
+                        <div class="card-icon"><i class="fas fa-weight"></i></div>
+                        <div class="card-value" id="status-bmi">--</div>
+                        <div class="card-label" data-translate="bmi"></div>
+                    </div>
+                    <div class="status-card">
+                        <div class="card-icon"><i class="fas fa-ruler-horizontal"></i></div>
+                        <div class="card-value" id="status-whtr">--</div>
+                        <div class="card-label" data-translate="whtr"></div>
+                    </div>
+                </div>
+                <div id="bmi-interpretation" class="interpretation-box"></div>
+                <div id="whtr-interpretation" class="interpretation-box"></div>
+                <div id="insulin-resistance-interpretation" class="interpretation-box"></div>
+            </div>
+        </section>
+        <section id="diagnosis-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="planSetupTitle"></h1>
+                <p class="screen-subtitle" data-translate="planSetupSubtitle"></p>
+                <form id="diagnosis-form">
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="step1Title"></h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="condition" value="diabetes"><span data-translate="conditionDiabetes"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="condition" value="fatty_liver"><span data-translate="conditionFattyLiver"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="condition" value="pcos"><span data-translate="conditionPcos"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="condition" value="hypertension"><span data-translate="conditionHypertension"></span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="condition" value="none"><span data-translate="conditionNone"></span></label>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="step2Title"></h3>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="weightGoal" value="lose" checked><span data-translate="goalLose"></span></label>
+                            <label class="radio-label"><input type="radio" name="weightGoal" value="maintain"><span data-translate="goalMaintain"></span></label>
+                            <label class="radio-label"><input type="radio" name="weightGoal" value="gain"><span data-translate="goalGain"></span></label>
+                        </div>
+                    </div>
+                    <div class="form-step">
+                        <h3 class="step-title" data-translate="step3Title"></h3>
+                        <div class="form-group">
+                            <input type="number" id="target-weight" placeholder="kg" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="nextStep"></button>
+                </form>
+            </div>
+        </section>
+        <section id="story-screen" class="main-app-screen content-page">
+            <div class="container">
+                <h1 class="screen-title" data-translate="myStory"></h1>
+                <div class="content-body">
+                    <p data-translate="storyContent_p1"></p>
+                    <p data-translate="storyContent_p2"></p>
+                    <p data-translate="storyContent_p3"></p>
+                    <p data-translate="storyContent_p4"></p>
+                    <p data-translate="storyContent_p5"></p>
+                    <p data-translate="storyContent_p6"></p>
+                </div>
+            </div>
+        </section>
+        <section id="certificates-screen" class="main-app-screen content-page">
+            <div class="container">
+                <h1 class="screen-title" data-translate="myCertificates"></h1>
+                <div class="content-body">
+                    <div class="certificates-images">
+                        <figure class="certificate-figure">
+                            <img src="images/diploma.jpg" alt="صورة شهادة الدبلومة" class="certificate-image">
+                            <figcaption data-translate="diplomaTitle"></figcaption>
+                        </figure>
+                        <figure class="certificate-figure">
+                            <img src="images/license.jpg" alt="صورة كارنيه مزاولة المهنة" class="certificate-image">
+                            <figcaption data-translate="licenseTitle"></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="user-profile-screen" class="main-app-screen">
+            <div class="container user-profile-container">
+                <h1 class="screen-title" data-translate="myProfileTitle"></h1>
+                <div class="profile-card">
+                    <div class="profile-picture-container">
+                        <img id="user-profile-picture" src="images/profile.png" alt="User Profile Picture" class="profile-picture">
+                    </div>
+                    <button id="upload-photo-button" class="btn btn-primary" data-translate="uploadPhoto"></button>
+                    <input type="file" id="photo-upload-input" accept="image/*" class="hidden">
+                    <h2 id="user-name" class="username"></h2>
+                    <p id="user-email" class="user-title"></p>
+                </div>
+                <div class="action-buttons-grid">
+                    <button class="btn btn-primary" data-translate="myHealthStatus" data-target="health-status-screen"></button>
+                    <button class="btn btn-primary" data-translate="myDietPlan" data-target="diagnosis-screen"></button>
+                    <button class="btn btn-primary" data-translate="measurements" data-target="measurements-screen"></button>
+                    <a href="medical_profile/index.html" class="btn btn-primary" data-translate="medicalProfile"></a>
+                </div>
+                <button id="logout-from-profile" class="btn btn-tertiary" data-translate="logout"></button>
+            </div>
+        </section>
+        <section id="measurements-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="measurements"></h1>
+                <p class="screen-subtitle" data-translate="measurementsSubtitle"></p>
+                <form id="measurements-form">
+                    <div class="form-group">
+                        <label for="current-weight" data-translate="currentWeight"></label>
+                        <input type="number" id="current-weight" placeholder="kg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waist-circumference" data-translate="waistCircumference"></label>
+                        <input type="number" id="waist-circumference" placeholder="cm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fasting-sugar" data-translate="fastingSugar"></label>
+                        <input type="number" id="fasting-sugar" placeholder="mg/dL">
+                    </div>
+                    <div class="form-group">
+                        <label for="insulin" data-translate="fastingInsulin"></label>
+                        <input type="number" id="insulin" placeholder="µIU/mL">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="saveMeasurements"></button>
+                </form>
+            </div>
+        </section>
+        <section id="diet-plan-screen" class="main-app-screen">
+            <div class="container">
+                <h1 class="screen-title" data-translate="myDietPlan"></h1>
+                <div class="plan-details-container">
+                </div>
+            </div>
+        </section>
+    </main>
+    <aside id="side-menu" class="side-menu">
+        <a href="#" data-translate="measurements" data-target="measurements-screen"></a>
+        <a href="medical_profile/index.html" data-translate="medicalProfile"></a>
+        <a href="#" data-translate="myHealthStatus" data-target="health-status-screen"></a>
+        <a href="#" data-translate="myDietPlan" data-target="diet-plan-screen"></a>
+        <a href="#" data-translate="caloriesGuide" data-target="calories-guide-screen"></a>
+        <a href="#" data-translate="healthyRecipes" data-target="recipes-screen"></a>
+        <a href="#" data-translate="scientificEvidence" data-target="evidence-screen"></a>
+        <hr class="menu-divider">
+        <a href="#" id="logout-button" data-translate="logout"></a>
+    </aside>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
